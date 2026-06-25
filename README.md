@@ -29,7 +29,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/ClipManager.git
+git clone https://github.com/YZX-Der/ClipManager.git
 cd ClipManager
 
 # 安装依赖

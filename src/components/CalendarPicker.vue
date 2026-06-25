@@ -130,7 +130,7 @@ export default {
 
 <style scoped>
 .cal-wrap { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 200; }
-.cal-panel { top: 50%; left: 50%; transform: translate(-50%, -50%);
+.cal-panel { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   width: 280px; background: #fff; border-radius: 12px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.04);
   padding: 14px; user-select: none;

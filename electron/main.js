@@ -62,8 +62,17 @@ function toggleWindow() {
 function showWindow() {
   const trayBounds = tray.getBounds();
   const windowBounds = window.getBounds();
-  const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2));
-  const y = Math.round(trayBounds.y + trayBounds.height + 4);
+  // 计算窗口位置（居中于托盘图标下方）
+  let x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2));
+  let y = Math.round(trayBounds.y + trayBounds.height + 4);
+  // 边界检测：如果托盘位置异常或窗口会超出屏幕，使用右上角作为后备位置
+  if (trayBounds.width === 0 || trayBounds.height === 0 || x < 0 || y < 0) {
+    const { screen } = require('electron');
+    const primaryDisplay = screen.getPrimaryDisplay();
+    const { width: screenWidth } = primaryDisplay.workAreaSize;
+    x = screenWidth - windowBounds.width - 16;
+    y = 40;
+  }
   window.setPosition(x, y, false);
   window.show();
   window.focus();

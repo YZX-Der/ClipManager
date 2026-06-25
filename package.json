@@ -1,6 +1,6 @@
 {
   "name": "clip-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ClipManager - macOS 菜单栏剪贴板管理工具",
   "main": "electron/main.js",
   "scripts": {

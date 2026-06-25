@@ -1,0 +1,20 @@
+const fs = require('fs');
+const path = require('path');
+
+/**
+ * 简单的脚本用于生成一个简单的 PNG 占位图标
+ * 用于 Electron Tray
+ */
+
+// base64 格式的一个黑色的圆圈图标 (22x22)
+const base64Icon = 'iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIExpYnJhcnkgNS4yLjIuNDYyMDkiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgrWQPl3AAABm0lEQVQ4EaWVv0sCcRzAn06uTjY4Ojm5NbgVODX9Ay3NbeDqL7C5I6KltLgVODX9Ay0NTo66OLkaunW69P68p4Yn+sB98f16HnfvvvgeIUTunXv863K5zNAn6Am0B0JAB8QBNSDbe94ByIA09AY8z+v2+30X6IEA8AL0zscOIAW8gId97pDP57NAt6AtEAWegS+8E9uArOAnOAHqY9A98An0LIdXfX6CvkAnIAG88E7KAs0Bf57HAdAn6Aq8At8B76Qs0DfgK9G8g66AL8C3WLMGrYAbeMeNfSCD8T3QHev60DmwAm78WwAdAOfAAtAnYAdAnYAV8N7H9RHoE7AEMoApgH+HngH260f89x3E7qT/C0AeyAInE7tInwK2Xz/iv28v9ofS/wGQB7LAI7A9rR0P6AnYv78V/0fSA6APYP8fABy87p7t04m8R+F9gO8O6E79u0P6GND/W77f766AnkBP8N0926cTeY/C+0D9e9A9++8O6Yf6yWTS8DyvC/RE/v/t3S0Y8/9C+v8CAn9E9u4B790jB1+9F1YdO30P8Nf+7pBeB/T/lm9P68SDPrD59YBeO7yA4G6u/QNhb2+8Eto26QAAAABJRU5ErkJggg==';
+
+const buffer = Buffer.from(base64Icon, 'base64');
+const outPath = path.join(__dirname, 'electron', 'icon.png');
+
+if (!fs.existsSync(path.dirname(outPath))) {
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+}
+
+fs.writeFileSync(outPath, buffer);
+console.log('Tray 图标已生成:', outPath);

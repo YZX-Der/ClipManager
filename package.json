@@ -1,0 +1,39 @@
+{
+  "name": "clip-manager",
+  "version": "1.0.0",
+  "description": "ClipManager - macOS 菜单栏剪贴板管理工具",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "electron:dev": "electron .",
+    "build": "vite build",
+    "pack": "vite build && electron-builder --dir",
+    "dist": "vite build && electron-builder",
+    "dist:mac": "vite build && electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.clipmanager.app",
+    "productName": "ClipManager",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": "dmg"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-vue2": "^2.3.1",
+    "electron": "^40.2.1",
+    "electron-builder": "^26.15.3",
+    "electron-packager": "^17.1.2",
+    "vite": "^4.5.14",
+    "vue": "^2.7.16"
+  }
+}

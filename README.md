@@ -12,6 +12,20 @@
 - **数据管理**：支持删除单条记录、清空历史、导出数据
 - **个性化设置**：可配置历史记录上限、开机自启等
 
+## 界面预览
+
+**空状态**
+
+![空状态](docs/screenshots/empty-state.png)
+
+**搜索与筛选**
+
+![搜索与筛选](docs/screenshots/search-filter.png)
+
+**设置面板**
+
+![设置面板](docs/screenshots/settings.png)
+
 ## 技术栈
 
 - [Electron](https://www.electronjs.org/) - 跨平台桌面应用框架
